@@ -1,0 +1,21 @@
+.Footer {
+  box-shadow: 0 -1px 5px 0 black;
+  height: 50px;
+  padding: 0 25px 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 540px) {
+  .Footer {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 384px) {
+  .Footer {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

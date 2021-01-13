@@ -1,0 +1,20 @@
+.Navi {
+  background-color: var(--bg-color);
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  ul {
+    display: flex;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 50px;
+      cursor: pointer;
+    }
+  }
+  box-shadow: 0 1px 5px 0 black;
+}

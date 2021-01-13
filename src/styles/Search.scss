@@ -1,0 +1,13 @@
+.Search {
+  height: calc(100vh - 103px);
+
+  .Search-form {
+    padding: 25px;
+    width: calc(100% - 50px);
+
+    .Search-input {
+      all: unset;
+      width: inherit;
+    }
+  }
+}

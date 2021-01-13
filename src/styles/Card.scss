@@ -1,0 +1,26 @@
+.Card {
+  position: relative;
+
+  .Card-img {
+    width: inherit;
+    height: inherit;
+    height: 180px;
+  }
+  .Card-img,
+  .Card-name {
+    cursor: pointer;
+  }
+  .Card-name:hover {
+    text-decoration: underline;
+  }
+  .Card-year {
+    font-size: 0.7rem;
+    color: gray;
+  }
+
+  .Card-rating {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+  }
+}
