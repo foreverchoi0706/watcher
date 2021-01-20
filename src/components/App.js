@@ -6,7 +6,7 @@ import Movies from "./routes/Movies";
 import TV from "./routes/TV";
 import Search from "./routes/Search";
 import Detail from "./routes/Detail";
-import Footer from "./Footer";
+
 
 export default function App() {
   return (
@@ -18,7 +18,6 @@ export default function App() {
         <Route exact path="/TV" component={TV} />
         <Route exact path="/Search" component={Search} />
         <Route exact path="/Detail/:id" component={Detail} />
-        <Footer />
       </BrowserRouter>
     </div>
   );

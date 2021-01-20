@@ -1,5 +1,5 @@
 .Home {
-  height: calc(100vh - 103px);
+  height: calc(100vh - 53px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,39 +17,14 @@
   }
 }
 
-@media (max-width: 1028px) {
-  .Home {
-    .Home-container {
-      h1 {
-        font-size: 5rem;
-      }
-      ul {
-        font-size: 3rem;
-      }
-    }
-  }
-}
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .Home {
     .Home-container {
       h1 {
         font-size: 3rem;
       }
       ul {
-        font-size: 2rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 540px) {
-  .Home {
-    .Home-container {
-      h1 {
-        font-size: 2rem;
-      }
-      ul {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -59,10 +34,10 @@
   .Home {
     .Home-container {
       h1 {
-        font-size: 0.7rem;
+        font-size: 1rem;
       }
       ul {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
       }
     }
   }
