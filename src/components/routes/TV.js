@@ -27,7 +27,7 @@ export default function Tv() {
             <h2>Popular Shows</h2>
             <div className="Tv-list">
               {upcomingTv.data.map((movie) => (
-                <Card {...movie} />
+                <Card key={movie.id} {...movie} />
               ))}
             </div>
           </div>
