@@ -1,50 +1,41 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
-import { getMovies } from "../../util/reducer";
+import { getTv } from "../../util/reducer";
 import Card from "../Card";
 
 import Loading from "../Loading";
 
-import "../../styles/Movies.scss";
+import "../../styles/Tv.scss";
 
-export default function TV() {
-  const { isLoaded, nowPlaying, upcomingMovies, popularMovies } = useSelector(
-    (reducer) => reducer.movies,
+export default function Tv() {
+  const { isLoaded, upcomingTv, popularTv } = useSelector(
+    (reducer) => reducer.tv,
     shallowEqual
   );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMovies());
-  }, [dispatch, getMovies]);
+    dispatch(getTv());
+  }, [dispatch]);
 
   return (
-    <section className="Movies">
+    <section className="Tv">
       {isLoaded ? (
-        <div className="Movies-container">
-          <div className="Movies-now-playing">
-            <h2>Top Rated Shows</h2>
-            <div className="Movies-list">
-              {nowPlaying.movies.map((movie) => (
-                <Card {...movie} />
-              ))}
-            </div>
-          </div>
-
-          <div className="Movies-now-playing">
+        <div className="Tv-container">
+          <div className="Tv-now-playing">
             <h2>Popular Shows</h2>
-            <div className="Movies-list">
-              {upcomingMovies.movies.map((movie) => (
+            <div className="Tv-list">
+              {upcomingTv.data.map((movie) => (
                 <Card {...movie} />
               ))}
             </div>
           </div>
 
-          <div className="Movies-now-playing">
+          <div className="Tv-now-playing">
             <h2>Airing Today</h2>
-            <div className="Movies-list">
-              {popularMovies.movies.map((movie) => (
+            <div className="Tv-list">
+              {popularTv.data.map((movie) => (
                 <Card {...movie} />
               ))}
             </div>

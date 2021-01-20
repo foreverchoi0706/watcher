@@ -16,7 +16,7 @@ export default function SearchResult({ keyword }) {
 
   useEffect(() => {
     dispatch(search(keyword));
-  }, [keyword]);
+  }, [dispatch, keyword]);
 
   return (
     <div className="SearchResult">

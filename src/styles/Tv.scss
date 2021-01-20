@@ -1,0 +1,33 @@
+.Tv {
+    .Tv-container {
+      padding: 20px;
+      .Tv-now-playing {
+        .Tv-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, 125px);
+          gap: 25px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 1028px) {
+  }
+  @media (max-width: 768px) {
+  }
+  
+  @media (max-width: 540px) {
+    .Tv {
+      .Tv-container {
+        .Tv-now-playing {
+          .Tv-list {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 384px) {
+  }
+  

@@ -2,6 +2,8 @@ import api from "./api";
 
 const GET_MOVIES = "GET_MOVIES";
 
+const GET_TV_SHOW = "GET_TV_SHOW";
+
 const GET_DETAIL = "GET_DETAIL";
 
 const SEARCH = "SEARCH";
@@ -10,6 +12,13 @@ export const getMovies = () => async (dispatch) => {
   const datas = await api.getMovies();
   dispatch({
     type: GET_MOVIES,
+    datas,
+  });
+};
+export const getTv = () => async (dispatch) => {
+  const datas = await api.getTv();
+  dispatch({
+    type: GET_TV_SHOW,
     datas,
   });
 };
@@ -34,16 +43,27 @@ const initState = {
   movies: {
     isLoaded: false,
     nowPlaying: {
-      movies: [],
+      data: null,
     },
     upcomingMovies: {
-      movies: [],
+      data: null,
     },
     popularMovies: {
-      movies: [],
+      data: null,
     },
   },
-  tv: {},
+  tv: {
+    isLoaded: false,
+    nowPlaying: {
+      data: null,
+    },
+    upcomingTv: {
+      data: null,
+    },
+    popularTv: {
+      data: null,
+    },
+  },
 
   detail: {
     isLoaded: false,
@@ -51,30 +71,40 @@ const initState = {
   },
   search: {
     isLoaded: false,
-    data: [],
+    data: null,
   },
 };
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case GET_MOVIES:
-      const { nowPlaying, upcomingMovies, popularMovies } = action.datas;
+      const { upcomingMovies, popularMovies } = action.datas;
       return {
-        ...initState,
+        ...state,
         movies: {
           isLoaded: true,
-          nowPlaying: {
-            movies: nowPlaying.movies,
-          },
           upcomingMovies: {
-            movies: upcomingMovies.movies,
+            data: upcomingMovies.movies,
           },
           popularMovies: {
-            movies: popularMovies.movies,
+            data: popularMovies.movies,
           },
         },
       };
-
+    case GET_TV_SHOW:
+      const { popularTv, upcomingTv } = action.datas;
+      return {
+        ...state,
+        tv: {
+          isLoaded: true,
+          upcomingTv: {
+            data: upcomingTv.movies,
+          },
+          popularTv: {
+            data: popularTv.movies,
+          },
+        },
+      };
     case GET_DETAIL:
       return {
         ...initState,

@@ -28,7 +28,7 @@ export default function Navi() {
     };
   };
 
-  const { Movies, TV, Search } = isClicked;
+  const { Movies, Tv, Search } = isClicked;
 
   return (
     <nav className="Navi">
@@ -39,8 +39,8 @@ export default function Navi() {
         <li className="Movies" style={style(Movies)} onClick={handleClick}>
           Movies
         </li>
-        <li className="TV" style={style(TV)} onClick={handleClick}>
-          TV
+        <li className="Tv" style={style(Tv)} onClick={handleClick}>
+          Tv
         </li>
         <li className="Search" style={style(Search)} onClick={handleClick}>
           Search

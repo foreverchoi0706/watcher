@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "../styles/Card.scss";
 
@@ -25,7 +25,7 @@ export default function Card({ id, title, year, rating, medium_cover_image }) {
   return (
     <div className="Card">
       <img
-      className="Card-img"
+        className="Card-img"
         src={medium_cover_image}
         alt={title}
         onClick={() => handleClick(id)}

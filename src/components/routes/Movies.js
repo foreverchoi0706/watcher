@@ -8,7 +8,7 @@ import Loading from "../Loading";
 import "../../styles/Movies.scss";
 
 export default function Movies() {
-  const { isLoaded, nowPlaying, upcomingMovies, popularMovies } = useSelector(
+  const { isLoaded, upcomingMovies, popularMovies } = useSelector(
     (reducer) => reducer.movies,
     shallowEqual
   );
@@ -17,25 +17,16 @@ export default function Movies() {
 
   useEffect(() => {
     dispatch(getMovies());
-  }, [dispatch, getMovies]);
+  }, [dispatch]);
 
   return (
     <section className="Movies">
       {isLoaded ? (
         <div className="Movies-container">
           <div className="Movies-now-playing">
-            <h2>Now Playing</h2>
-            <div className="Movies-list">
-              {nowPlaying.movies.map((movie) => (
-                <Card {...movie} />
-              ))}
-            </div>
-          </div>
-
-          <div className="Movies-now-playing">
             <h2>Upcoming Movies</h2>
             <div className="Movies-list">
-              {upcomingMovies.movies.map((movie) => (
+              {upcomingMovies.data.map((movie) => (
                 <Card {...movie} />
               ))}
             </div>
@@ -44,7 +35,7 @@ export default function Movies() {
           <div className="Movies-now-playing">
             <h2>Popular Movies</h2>
             <div className="Movies-list">
-              {popularMovies.movies.map((movie) => (
+              {popularMovies.data.map((movie) => (
                 <Card {...movie} />
               ))}
             </div>

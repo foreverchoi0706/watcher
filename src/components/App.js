@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navi from "./Navi";
 import Home from "./routes/Home";
 import Movies from "./routes/Movies";
-import TV from "./routes/TV";
+import TV from "./routes/Tv";
 import Search from "./routes/Search";
 import Detail from "./routes/Detail";
 

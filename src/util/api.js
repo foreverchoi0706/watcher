@@ -1,44 +1,44 @@
 import axios from "axios";
-import { search } from "./reducer";
+
+const URL = "https://yts.mx/api/v2/list_movies.json";
 
 const api = {
   async getMovies() {
-    const nowPlaying = await axios.get(
-      "https://yts-proxy.nomadcoders1.now.sh/list_movies.json",
-      {
-        params: {
-          sort_by: "rating",
-        },
-      }
-    );
+    const upcomingMovies = await axios.get(URL, {
+      params: {
+        sort_by: "date_added",
+      },
+    });
 
-    // const upcomingMovies = await axios.get(
-    //   "https://yts-proxy.nomadcoders1.now.sh/list_upcoming.json",
-    //   {
-    //     params: {
-    //       sort_by: "rating",
-    //     },
-    //   }
-    // );
+    const popularMovies = await axios.get(URL, {
+      params: {
+        sort_by: "rating",
+      },
+    });
 
-    // const popularMovies = await axios.get(
-    //   "https://yts-proxy.nomadcoders1.now.sh/list_movies.json",
-    //   {
-    //     params: {
-    //       sort_by: "rating",
-    //     },
-    //   }
-    // );
-
-    // return {
-    //   nowPlaying: dnowPlaying.data.data,
-    //   upcomingMovies: upcomingMovies.data.data,
-    //   popularMovies: popularMovies.data.data,
-    // };
     return {
-      nowPlaying: nowPlaying.data.data,
-      upcomingMovies: nowPlaying.data.data,
-      popularMovies: nowPlaying.data.data,
+      upcomingMovies: upcomingMovies.data.data,
+      popularMovies: popularMovies.data.data,
+    };
+  },
+
+  async getTv() {
+    const upcomingTv = await axios.get(URL, {
+      params: {
+        sort_by: "date_added",
+        genre: "drama",
+      },
+    });
+
+    const popularTv = await axios.get(URL, {
+      params: {
+        sort_by: "rating",
+        genre: "drama",
+      },
+    });
+    return {
+      upcomingTv: upcomingTv.data.data,
+      popularTv: popularTv.data.data,
     };
   },
   async getDetail(id) {

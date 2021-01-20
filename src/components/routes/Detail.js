@@ -23,7 +23,7 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getDetail(id));
-  }, [dispatch, getDetail]);
+  }, [dispatch, id]);
 
   const handleClick = () => {
     history.goBack();
